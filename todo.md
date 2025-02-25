@@ -1,7 +1,7 @@
 - [ ] Webserver for noobi.fi
     - [x] Serve HTMX
-    - [ ] Serve CSS
-    - [ ] Database
+    - [x] Serve CSS
+    - [ ] **Database**
     - [ ] CRUD
 - [ ] Webserver local desktop 
 - [ ] Webserver container

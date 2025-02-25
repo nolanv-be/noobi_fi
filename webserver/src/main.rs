@@ -11,17 +11,20 @@ fn make_header_html(page_title: &str) -> Markup {
         meta charset="utf-8";
         title { (page_title) }
         script src="/assets/scripts/htmx.min.js"{}
+        link rel="stylesheet" href="/assets/styles/pico.css"{}
+        link rel="stylesheet" href="/assets/styles/counter.css"{}
     }
 }
 
 fn make_counter_html(count: u8) -> Markup {
     html! {
-        div id="counter" {
+        section id="counter" {
             h1 { "Counter: "(count) }
             button
-            hx-post=(format!("/count/{}", count + 1))
-            hx-target="#counter"
-            {"Increment"}
+                class="outline"
+                hx-post=(format!("/count/{}", count + 1))
+                hx-target="#counter"
+                {"increment"}
         }
     }
 }
@@ -36,7 +39,9 @@ async fn respond_index(counter: web::Query<CounterQuery>) -> ActixResult<Markup>
 
     Ok(html! {
         (make_header_html("noobi.fi - index"))
-        (make_counter_html(count))
+        main class="container" {
+            (make_counter_html(count))
+        }
     })
 }
 
