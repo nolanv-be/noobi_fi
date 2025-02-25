@@ -1,5 +1,5 @@
 - [ ] Webserver for noobi.fi
-    - [ ] Serve HTMX
+    - [x] Serve HTMX
     - [ ] Serve CSS
     - [ ] Database
     - [ ] CRUD
