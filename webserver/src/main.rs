@@ -22,7 +22,7 @@ fn make_counter_html(count: u8) -> Markup {
             h1 { "Counter: "(count) }
             button
                 class="outline"
-                hx-post=(format!("/count/{}", count + 1))
+                hx-post=(format!("/count/{}", count.saturating_add(1)))
                 hx-target="#counter"
                 {"increment"}
         }
